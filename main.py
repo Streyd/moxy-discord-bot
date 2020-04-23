@@ -9,8 +9,12 @@ client.remove_command("help")
 
 wordlst = ['hello']
 
-command_names = ["clear", "kick", "ban", "unban"]
-command_discriptions = ["Clean chat", "Kick member", "Ban member", "Unban member"]
+command_names = ["clear", "kick", "ban", "unban", "mute", "unmute", "deaf", "undeaf", "hex", "pure"]
+command_discriptions = [
+                        "Clean chat", "Kick member", "Ban member",
+                        "Unban member", "Mute member", "Unmute member", "Deafen member", "Undeafen member",
+                        "Mute & deafen member", "Unmute & undeafen member",
+                        ]
 
 def is_me(msg):
     return msg.author == client.user
@@ -93,14 +97,55 @@ async def unban(ctx, *, member):
 
 @client.command(pass_context=True)
 async def help(ctx):
-    emb = ds.Embed(title="That's what i can do (´｡• ᵕ •｡`)")
+    emb = ds.Embed(title="That's what i can do (´｡• ᵕ •｡`)", color=ds.Color.magenta())
 
     for command in command_names:
         emb.add_field(name=f"**{client.command_prefix}{command}**",
-                      value=f"*{command_discriptions[command_names.index(command)]}*")
-
+                      value=f"{command_discriptions[command_names.index(command)]}")
+        emb.set_thumbnail(url="https://avatars.mds.yandex.net/get-pdb/1956095/3a5f7825-06f5-4801-9d30-73c811a06471/s1200?webp=false")
     await ctx.send(embed=emb)
 
+
+@client.command(pass_context=True)
+async def mute(ctx, member: ds.Member, *, reason=None):
+    if ctx.author.guild_permissions.mute_members:
+        await member.edit(reason=reason, mute=True)
+        await ctx.send(f"I have cast orchid {member.mention} ( ・∀・)・・・--------☆ ")
+
+
+@client.command(pass_context=True)
+async def unmute(ctx, member: ds.Member, *, reason=None):
+    if ctx.author.guild_permissions.mute_members:
+        await member.edit(reason=reason, mute=False)
+        await ctx.send(f"{member.mention} have used black king bar w(ﾟｏﾟ)w")
+
+
+@client.command(pass_context=True)
+async def deaf(ctx, member: ds.Member, *, reason=None):
+    if ctx.author.guild_permissions.deafen_members:
+        await member.edit(reason=reason, deafen=True)
+        await ctx.send(f"{member.mention} have been stunned w(ﾟｏﾟ)w ")
+
+
+@client.command(pass_context=True)
+async def undeaf(ctx, member: ds.Member, *, reason=None):
+    if ctx.author.guild_permissions.deafen_members:
+        await member.edit(reason=reason, deafen=False)
+        await ctx.send(f"{member.mention} have been used lotus orb ")
+
+
+@client.command(pass_context=True)
+async def hex(ctx, member: ds.Member, *, reason=None):
+    if ctx.author.guild_permissions.deafen_members:
+        await member.edit(reason=reason, mute=True, deafen=True)
+        await ctx.send(f"I have cast hex {member.mention} ( ・∀・)・・・--------☆ ")
+
+
+@client.command(pass_context=True)
+async def pure(ctx, member: ds.Member, *, reason=None):
+    if ctx.author.guild_permissions.mute_members and ctx.author.guild_permissions.deafen_members:
+        await member.edit(reason=reason, mute=False, deafen=False)
+        await ctx.send(f"{member.mention} have been purificated")
 
 client.run(TOKEN)
 
