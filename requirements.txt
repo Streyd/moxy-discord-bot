@@ -4,7 +4,6 @@ flask_wtf
 wtforms
 discord
 youtube_dl
-os
 collections
 werkzeug
 sqlalchemy
