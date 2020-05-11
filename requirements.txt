@@ -6,3 +6,4 @@ discord
 youtube_dl
 werkzeug
 sqlalchemy
+psycopg2-binary
