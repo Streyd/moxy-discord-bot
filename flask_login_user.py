@@ -25,7 +25,7 @@ def login():
         user = session.query(User).filter(User.discord_id == form.discord_id.data).first()
         if user and user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
-            return redirect("/command_register")
+            return redirect("/")
         return render_template('login.html',
                                message="Wrong Discord ID or Password",
                                form=form)
@@ -36,4 +36,4 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect("/login")
+    return redirect("/")
