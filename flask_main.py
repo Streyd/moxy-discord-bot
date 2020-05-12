@@ -47,8 +47,5 @@ def start_page():
 
 
 db_session.global_init("data/db/custom_commands.sqlite")
-
-
-
-
+app.run()
 

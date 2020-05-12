@@ -9,7 +9,6 @@ import data.db_session as db_session
 from data.commands import Commands
 
 
-
 client = commands.Bot(command_prefix=constants.PREFIX)
 client.remove_command("help")
 
