@@ -34,6 +34,7 @@ def both(msg):
 async def on_ready():
     global client
     print("Оhayo ♡")
+    import flask_main
     await client.change_presence(status=ds.Status.online, activity=ds.Game("^_^help"))
 
 
