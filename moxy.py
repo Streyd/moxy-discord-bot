@@ -43,7 +43,12 @@ async def on_message(message):
     if msg in constants.WORDLST:
         await message.channel.send("Oh")
     if message.content[:3] == "^_^" and message.content[3:] not in constants.COMMANDS and message.content.count(" ") == 0:
-        db_session.global_init("data/db/custom_commands.sqlite")
+        db_session.global_init(
+                               user="tgzxcghuodsobc",
+                               password="bac16d06b380d43e040d01b3aba7bdeb92c9c5ad904d69fce184504252ac79cb",
+                               hostname="ec2-54-228-209-117.eu-west-1.compute.amazonaws.com",
+                               database_name="d960kjpc5g6169"
+                              )
         session = db_session.create_session()
         if session.query(Commands).filter(Commands.command_name == message.content[3:]).first():
             command = session.query(Commands).filter(Commands.command_name == message.content[3:]).first()

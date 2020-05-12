@@ -9,16 +9,16 @@ SqlAlchemyBase = dec.declarative_base()
 __factory = None
 
 
-def global_init(db_file):
+def global_init(user, password, hostname, database_name):
     global __factory
 
     if __factory:
         return
 
-    if not db_file or not db_file.strip():
+    if not any([user, password, hostname, database_name]):
         raise Exception("Необходимо указать файл базы данных.")
     
-    conn_str = f'sqlite:///{db_file.strip()}?check_same_thread=False'
+    conn_str = f'postgresql+psycopg2://{user}:{password}@{hostname}/{database_name}'
     print(f"Подключение к базе данных по адресу {conn_str}")
 
     engine = sa.create_engine(conn_str, echo=False)
