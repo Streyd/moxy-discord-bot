@@ -9,7 +9,7 @@ SqlAlchemyBase = dec.declarative_base()
 __factory = None
 
 
-def global_init(user, password, hostname, database_name):
+def global_init(user, password, hostname, port, database_name):
     global __factory
 
     if __factory:
@@ -18,7 +18,7 @@ def global_init(user, password, hostname, database_name):
     if not any([user, password, hostname, database_name]):
         raise Exception("Необходимо указать файл базы данных.")
     
-    conn_str = f'postgresql+psycopg2://{user}:{password}@{hostname}/{database_name}'
+    conn_str = f'postgresql+psycopg2://{user}:{password}@{hostname}:{port}/{database_name}'
     print(f"Подключение к базе данных по адресу {conn_str}")
 
     engine = sa.create_engine(conn_str, echo=False)
@@ -30,3 +30,4 @@ def global_init(user, password, hostname, database_name):
 def create_session() -> Session:
     global __factory
     return __factory()
+

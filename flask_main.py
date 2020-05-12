@@ -50,6 +50,7 @@ db_session.global_init(
                         user="tgzxcghuodsobc",
                         password="bac16d06b380d43e040d01b3aba7bdeb92c9c5ad904d69fce184504252ac79cb",
                         hostname="ec2-54-228-209-117.eu-west-1.compute.amazonaws.com",
+                        port="5432",
                         database_name="d960kjpc5g6169"
                        )
 
