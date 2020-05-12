@@ -4,7 +4,6 @@ import constants
 import youtube_dl
 from discord.utils import get
 import os
-import collections
 from discord import utils
 import data.db_session as db_session
 from data.commands import Commands
@@ -14,8 +13,6 @@ from data.commands import Commands
 client = commands.Bot(command_prefix=constants.PREFIX)
 client.remove_command("help")
 
-
-songs_queue = collections.deque
 
 
 def is_me(msg):
