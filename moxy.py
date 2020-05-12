@@ -60,8 +60,6 @@ async def on_message(message):
                 await message.channel.send(embed=emb)
 
 
-
-
 @client.event
 async def on_raw_reaction_add(ctx):
     if ctx.message_id == constants.ROLE_POST_ID:
