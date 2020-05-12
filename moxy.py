@@ -39,6 +39,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    await client.process_commands(message)
     msg = message.content.lower()
     if msg in constants.WORDLST:
         await message.channel.send("Ohayo")
@@ -51,7 +52,7 @@ async def on_message(message):
                 emb = ds.Embed(title=command.text, color=ds.Color.magenta())
                 emb.set_image(url=command.img)
                 await message.channel.send(embed=emb)
-    await client.process_commands(message)
+
 
 
 @client.event
