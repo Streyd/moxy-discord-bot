@@ -107,6 +107,13 @@ async def on_raw_reaction_remove(ctx):
         print(repr(e))
 
 
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, ds.ext.commands.CommandNotFound):
+        print("ok")
+        return
+    raise error
+
 @client.command(pass_context=True)
 async def hi(ctx):
     author = ctx.message.author
@@ -253,6 +260,7 @@ async def play(ctx, *, song_url: str):
             ctx.send("Pls, join to voice channel")
     else:
         await ctx.send("I'm too busy")
+
 
 
 client.run(constants.TOKEN)
