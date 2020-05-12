@@ -52,7 +52,7 @@ async def on_message(message):
                 emb = ds.Embed(title=command.text, color=ds.Color.magenta())
                 emb.set_image(url=command.img)
                 await message.channel.send(embed=emb)
-
+    await client.process_commands(message)
 
 
 @client.event
