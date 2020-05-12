@@ -33,8 +33,7 @@ def both(msg):
 @client.event
 async def on_ready():
     global client
-    print("Оhayo ♡")
-    import flask_main
+    print("Оhayo")
     await client.change_presence(status=ds.Status.online, activity=ds.Game("^_^help"))
 
 
@@ -42,7 +41,7 @@ async def on_ready():
 async def on_message(message):
     msg = message.content.lower()
     if msg in constants.WORDLST:
-        await message.channel.send("Oh")
+        await message.channel.send("Ohayo")
     if message.content[:3] == "^_^" and message.content[3:] not in constants.COMMANDS and message.content.count(" ") == 0:
         db_session.global_init("data/db/custom_commands.sqlite")
         session = db_session.create_session()
