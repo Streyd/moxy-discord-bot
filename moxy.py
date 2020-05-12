@@ -52,8 +52,6 @@ async def on_message(message):
                 emb = ds.Embed(title=command.text, color=ds.Color.magenta())
                 emb.set_image(url=command.img)
                 await message.channel.send(embed=emb)
-    elif message.content[:3] == "^_^" and message.content[3:] not in constants.COMMANDS and message.content.count(" ") != 0:
-        await message.channel.send("If you want use command, you should write it's name without empty pace between symbols")
     await client.process_commands(message)
 
 
