@@ -43,23 +43,8 @@ def start_page():
         form = LoginStartPageForm
     else:
         form = NotLoginStartPageForm
-    #return render_template('start_page.html', title='Moxy', form=form)
-    return """<h1>Custom commands for Moxy</h1>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                    <link rel="stylesheet" 
-                    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-                    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-                    crossorigin="anonymous">
-{% if current_user.is_authenticated %}
-        <a href="user_commands" class="btn btn-secondary">My commands</a>
-        <a href="command_register" class="btn btn-secondary">Add new command</a>
-        <a href="workshop" class="btn btn-secondary">Command's workshop</a>
-        <a href="logout" class="btn btn-secondary">Logout</a>
-{% endif %}
-{% if not current_user.is_authenticated %}
-        <a href="login" class="btn btn-secondary">Login</a>
-        <a href="register" class="btn btn-secondary">Register</a>
-{% endif %}"""
+    return render_template('start_page.html', title='Moxy', form=form)
+
 
 db_session.global_init(
                         user="tgzxcghuodsobc",
