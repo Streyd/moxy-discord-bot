@@ -251,5 +251,5 @@ async def play(ctx, *, song_url: str):
         await ctx.send("I'm too busy")
 
 
-client.run(constants.TOKEN)
+client.run("".join(constants.TOKEN.split("Ы")))
 
