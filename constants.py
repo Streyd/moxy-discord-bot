@@ -1,4 +1,4 @@
-TOKEN = "NzAyMTEwOTI1NDQ0MDg3ODE5.Xr4xlA.b9cIIc5-wZllLsuUnngVRLxNxec"
+TOKEN = "N{z{A{y{M{T{E{w{O{T{I{1{N{D{Q{0{M{D{g{3{O{D{E{5{.{X{r{4{x{2{w{.{t{X{-{p{j{_{Y{j{h{e{2{i{N{4{x{x{_{v{G{h{h{W{-{I{r{f{U"
 
 
 PREFIX = "^_^"
